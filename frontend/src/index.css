@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, 'Segoe UI', sans-serif;
+  color: #111827;
+  background: #f5f1e8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: linear-gradient(180deg, #f5f1e8 0%, #f8fafc 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.chess-card {
+  @apply rounded-xl border border-slate-200 bg-white shadow-soft;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center rounded-md bg-ink px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center rounded-md border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-100;
+}
+
+.input {
+  @apply mt-1 w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 outline-none ring-0 transition focus:border-accent;
+}
+
+.label {
+  @apply block text-sm font-medium text-slate-700;
+}
