@@ -8,11 +8,8 @@ import { useAuth } from './context/AuthContext';
 const navItems = [
   { label: 'Home', to: '/' },
   { label: 'Articles', to: '/articles' },
-  { label: 'Openings', to: '/articles?category=openings' },
   { label: 'Tactics', to: '/articles?category=tactics' },
-  { label: 'Endgame', to: '/articles?category=endgame' },
-  { label: 'Authors', to: '/articles' },
-  { label: 'About', to: '/about' }
+  { label: 'Authors', to: '/articles' }
 ];
 
 const categoryPalette = ['#111827', '#374151', '#C9A227', '#F5F1E8'];
@@ -73,24 +70,30 @@ function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200 bg-[#111827]/95 text-white backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#C9A227] text-lg font-bold text-slate-900">C</div>
-          <div>
-            <div className="text-lg font-semibold tracking-wide">Chess Chronicle</div>
-          </div>
-        </Link>
+    <header className="sticky top-0 z-40 border-b border-slate-700 bg-[#111827]/95 text-white backdrop-blur-xl">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+        <div className="flex min-w-[180px] items-center">
+          <Link to="/" className="flex items-center gap-3">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#C9A227] text-lg font-bold text-slate-900 shadow-md shadow-[#C9A227]/30">C</div>
+            <div className="text-xl font-semibold tracking-tight text-white">Ceylon Chess</div>
+          </Link>
+        </div>
 
-        <nav className="hidden items-center gap-6 text-sm text-slate-200 lg:flex">
+        <nav className="hidden flex-1 items-center justify-center gap-5 text-sm font-medium text-slate-200 lg:flex">
           {navItems.map((item) => (
-            <NavLink key={item.label} to={item.to} className={({ isActive }) => (isActive ? 'text-white' : 'text-slate-300')}>{item.label}</NavLink>
+            <NavLink
+              key={item.label}
+              to={item.to}
+              className={({ isActive }) => (isActive ? 'text-white transition' : 'text-slate-300 transition hover:text-white')}
+            >
+              {item.label}
+            </NavLink>
           ))}
         </nav>
 
-        <div className="hidden flex-1 justify-center px-6 lg:flex">
+        <div className="hidden min-w-[280px] justify-center px-2 lg:flex">
           <form onSubmit={handleSearch} className="w-full max-w-md">
-            <div className="flex items-center gap-2 rounded-full border border-slate-700 bg-slate-800 px-3 py-2">
+            <div className="flex items-center gap-2 rounded-full border border-slate-600 bg-[#1f2c3d] px-3 py-2.5 shadow-inner shadow-slate-950/20">
               <Search size={16} className="text-slate-400" />
               <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search chess topics..." className="w-full bg-transparent text-sm text-white placeholder:text-slate-400 focus:outline-none" />
             </div>
@@ -100,13 +103,13 @@ function Navbar() {
         <div className="hidden items-center gap-3 lg:flex">
           {user ? (
             <>
-              <Link to="/dashboard" className="btn-secondary border-slate-600 bg-slate-800 text-white hover:bg-slate-700">Dashboard</Link>
-              <button onClick={logout} className="btn-primary bg-[#C9A227] text-slate-900 hover:bg-[#d5b554]">Logout</button>
+              <Link to="/dashboard" className="rounded-xl border border-slate-600 bg-slate-800 px-4 py-2 text-sm font-medium text-white transition hover:bg-slate-700">Dashboard</Link>
+              <button onClick={logout} className="rounded-xl bg-[#C9A227] px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-[#d7b44d]">Logout</button>
             </>
           ) : (
             <>
-              <Link to="/login" className="btn-secondary border-slate-600 bg-slate-800 text-white hover:bg-slate-700">Login</Link>
-              <Link to="/register" className="btn-primary bg-[#C9A227] text-slate-900 hover:bg-[#d5b554]">Write an Article</Link>
+              <Link to="/login" className="rounded-xl border border-slate-600 bg-white px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-slate-100">Login</Link>
+              <Link to="/register" className="rounded-xl bg-[#C9A227] px-4 py-2 text-sm font-semibold text-slate-900 transition hover:bg-[#d7b44d]">Write an Article</Link>
             </>
           )}
         </div>
@@ -155,7 +158,7 @@ function Footer() {
         <div>
           <div className="mb-4 flex items-center gap-3">
             <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#C9A227] font-bold text-slate-900">C</div>
-            <span className="text-lg font-semibold text-white">Chess Chronicle</span>
+            <span className="text-lg font-semibold text-white">Ceylon Chess</span>
           </div>
           <p className="text-sm text-slate-400">Premium chess journalism, analysis, and community stories.</p>
         </div>

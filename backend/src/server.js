@@ -19,7 +19,7 @@ app.use(express.json({ limit: '5mb' }));
 app.use(morgan('dev'));
 
 app.get('/api/health', (req, res) => {
-  res.json({ ok: true, message: 'Chess Chronicle API is running.' });
+  res.json({ ok: true, message: 'Ceylon Chess API is running.' });
 });
 
 app.use('/api/auth', authRoutes);

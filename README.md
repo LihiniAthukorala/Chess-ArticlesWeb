@@ -1,4 +1,4 @@
-# Chess Chronicle
+# Ceylon Chess
 
 A modern chess article and community platform with a public magazine, author dashboard, and admin content approval workflow.
 
